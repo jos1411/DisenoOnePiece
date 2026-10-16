@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { Shichibukai } from '../data/shichibukai';
 import { X, Volume2, Shield, Flame, Activity, Zap, Award, Skull, AlertCircle } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
+import { ModalTransitionOverlay } from './ModalTransitionOverlay';
 
 interface CharacterModalProps {
   warlord: Shichibukai | null;
@@ -41,6 +42,9 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
       className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-4 md:p-6 overflow-y-auto bg-black/85 backdrop-blur-md animate-in fade-in duration-200"
       onClick={onClose}
     >
+      {/* Signature full-screen transition takeover on click */}
+      <ModalTransitionOverlay warlord={warlord} />
+
       {/* Modal Container */}
       <div
         onClick={(e) => e.stopPropagation()}

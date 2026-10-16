@@ -2,16 +2,20 @@ import { useState, useRef, MouseEvent } from 'react';
 import { Shichibukai } from '../data/shichibukai';
 import { Eye, Shield, Sparkles } from 'lucide-react';
 import { soundEngine } from '../utils/audio';
+import { WarlordCardFX } from './WarlordCardFX';
 
 interface WantedCardProps {
   warlord: Shichibukai;
   onSelect: (warlord: Shichibukai) => void;
+  isDimmed?: boolean;
+  onHoverChange?: (id: string | null) => void;
 }
 
-export default function WantedCard({ warlord, onSelect }: WantedCardProps) {
+export default function WantedCard({ warlord, onSelect, isDimmed = false, onHoverChange }: WantedCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
   const [imageError, setImageError] = useState(false);
 
@@ -23,28 +27,43 @@ export default function WantedCard({ warlord, onSelect }: WantedCardProps) {
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
 
-    const rotX = ((y - centerY) / centerY) * -10;
-    const rotY = ((x - centerX) / centerX) * 10;
+    const normX = (x - centerX) / centerX;
+    const normY = (y - centerY) / centerY;
 
-    setRotateX(rotX);
-    setRotateY(rotY);
+    setMousePos({ x: normX, y: normY });
+
+    // Doflamingo marionette delay vs standard responsive 3D tilt
+    const maxRot = warlord.id === 'doflamingo' ? 14 : 10;
+    setRotateX(normY * -maxRot);
+    setRotateY(normX * maxRot);
   };
 
   const handleMouseEnter = () => {
     setIsHovered(true);
+    onHoverChange?.(warlord.id);
     soundEngine.playSound(warlord.soundType);
   };
 
   const handleMouseLeave = () => {
     setIsHovered(false);
+    onHoverChange?.(null);
     setRotateX(0);
     setRotateY(0);
+    setMousePos({ x: 0, y: 0 });
   };
 
   const handleClick = () => {
-    soundEngine.playSound('slash');
+    // Play character-specific click audio signature
+    soundEngine.playSound(warlord.soundType, { isClick: true });
     onSelect(warlord);
   };
+
+  // Marionette lag transition for Doflamingo vs ultra-snappy for others
+  const transitionStyle = isHovered
+    ? warlord.id === 'doflamingo'
+      ? 'transform 260ms cubic-bezier(0.18, 0.89, 0.32, 1.28), filter 300ms, opacity 300ms'
+      : 'transform 100ms ease-out, filter 300ms, opacity 300ms'
+    : 'transform 450ms ease-out, filter 300ms, opacity 300ms';
 
   return (
     <div
@@ -55,20 +74,29 @@ export default function WantedCard({ warlord, onSelect }: WantedCardProps) {
       onClick={handleClick}
       style={{
         transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale3d(${
-          isHovered ? 1.03 : 1
-        }, ${isHovered ? 1.03 : 1}, 1)`,
-        transition: isHovered ? 'transform 100ms ease-out' : 'transform 400ms ease-out',
+          isHovered ? 1.04 : 1
+        }, ${isHovered ? 1.04 : 1}, 1)`,
+        transition: transitionStyle,
+        boxShadow: isHovered
+          ? `0 25px 50px rgba(0,0,0,0.95), 0 0 35px ${warlord.themeColor.glow}`
+          : '0 10px 25px rgba(0,0,0,0.7)',
+        borderColor: isHovered ? warlord.themeColor.primary : '#8B5A2B',
       }}
-      className="relative group cursor-pointer select-none rounded-xl overflow-hidden p-3 sm:p-4 bg-[#ebd7ba] text-[#3d2410] border-4 border-[#8B5A2B] shadow-2xl hover:shadow-[0_25px_50px_rgba(0,0,0,0.9),0_0_30px_rgba(229,169,59,0.35)] transition-shadow duration-300 flex flex-col justify-between min-h-[480px]"
+      className={`relative group cursor-pointer select-none rounded-xl overflow-hidden p-3 sm:p-4 bg-[#ebd7ba] text-[#3d2410] border-4 transition-all duration-300 flex flex-col justify-between min-h-[490px] ${
+        isDimmed ? 'opacity-55 filter blur-[1.5px] grayscale-[40%] brightness-75 scale-[0.97]' : 'opacity-100 z-10'
+      } ${isHovered ? 'z-30' : ''}`}
     >
       {/* Background Vintage Paper Grain Texture */}
       <div
-        className="absolute inset-0 opacity-20 pointer-events-none"
+        className="absolute inset-0 opacity-25 pointer-events-none"
         style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, #3d2410 1px, transparent 0)`,
           backgroundSize: '12px 12px',
         }}
       />
+
+      {/* Dynamic Character FX Overlay (Darkness vortex, 3D slash, Room dome, Hearts, etc.) */}
+      <WarlordCardFX warlordId={warlord.id} isHovered={isHovered} mousePos={mousePos} />
 
       {/* Top Header Section */}
       <div className="relative text-center z-10">
@@ -78,7 +106,11 @@ export default function WantedCard({ warlord, onSelect }: WantedCardProps) {
           <span>No. {warlord.id.toUpperCase()}</span>
         </div>
 
-        <h3 className="font-wanted text-4xl sm:text-5xl tracking-widest font-black uppercase text-[#291708] drop-shadow-sm">
+        <h3
+          className={`font-wanted text-4xl sm:text-5xl tracking-widest font-black uppercase transition-all duration-300 ${
+            isHovered ? 'wanted-ignite text-[#1c0f05] scale-105' : 'text-[#291708]'
+          }`}
+        >
           WANTED
         </h3>
         <p className="text-[11px] font-mono tracking-widest font-extrabold uppercase text-[#4a2e16] -mt-1">
@@ -109,13 +141,13 @@ export default function WantedCard({ warlord, onSelect }: WantedCardProps) {
         )}
 
         {/* Kanji Epithet Floating Tag */}
-        <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/75 backdrop-blur-sm border border-pirate-gold/40 text-pirate-gold text-[10px] font-mono z-10">
+        <div className="absolute top-2 right-2 px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-pirate-gold/50 text-pirate-gold text-[10px] font-mono z-10 shadow-md">
           {warlord.epithetJp.split(' ')[0]}
         </div>
 
         {/* Fruit / Power Badge */}
         <div className="absolute bottom-2 left-2 z-10">
-          <span className="px-2 py-0.5 rounded bg-black/80 backdrop-blur-sm border border-slate-700 text-slate-200 text-[10px] font-mono uppercase font-semibold">
+          <span className="px-2 py-0.5 rounded bg-black/85 backdrop-blur-sm border border-slate-700 text-slate-200 text-[10px] font-mono uppercase font-semibold shadow-md">
             {warlord.devilFruit.type === 'Ninguna' ? 'Poder Físico/Haki' : warlord.devilFruit.type}
           </span>
         </div>

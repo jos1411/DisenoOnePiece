@@ -16,6 +16,7 @@ export default function App() {
   const [activeFilter, setActiveFilter] = useState<'all' | 'original' | 'sucesor' | 'fruit' | 'no-fruit'>('all');
   const [sortBy, setSortBy] = useState<'bounty-desc' | 'bounty-asc' | 'threat' | 'name'>('bounty-desc');
   const [searchQuery, setSearchQuery] = useState('');
+  const [hoveredWarlordId, setHoveredWarlordId] = useState<string | null>(null);
 
   const handleNavigate = (sectionId: string) => {
     const el = document.getElementById(sectionId);
@@ -175,6 +176,8 @@ export default function App() {
                     key={warlord.id}
                     warlord={warlord}
                     onSelect={(w) => setSelectedWarlord(w)}
+                    isDimmed={hoveredWarlordId !== null && hoveredWarlordId !== warlord.id}
+                    onHoverChange={(id) => setHoveredWarlordId(id)}
                   />
                 ))}
               </div>
