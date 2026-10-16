@@ -48,12 +48,12 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
       {/* Modal Container */}
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl bg-grandline-900 border-2 border-pirate-gold/40 shadow-[0_0_50px_rgba(0,0,0,0.9),0_0_30px_rgba(229,169,59,0.2)] text-slate-100 flex flex-col"
+        className="relative w-full max-w-4xl max-h-[92vh] overflow-y-auto rounded-2xl bg-grandline-900 border-2 border-red-900/60 shadow-[0_0_50px_rgba(0,0,0,0.95),0_0_30px_rgba(220,38,38,0.2)] text-slate-100 flex flex-col"
       >
         {/* Top Confidential Classified Header */}
-        <div className="sticky top-0 z-20 px-6 py-4 bg-grandline-950/95 border-b border-slate-800 flex items-center justify-between backdrop-blur-md">
+        <div className="sticky top-0 z-20 px-6 py-4 bg-grandline-950/95 border-b border-red-950/80 flex items-center justify-between backdrop-blur-md">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-red-950 border border-red-700 flex items-center justify-center text-red-400">
+            <div className="w-8 h-8 rounded-lg bg-red-950 border border-red-700 flex items-center justify-center text-red-400 shadow-[0_0_10px_rgba(220,38,38,0.3)]">
               <Shield className="w-4 h-4" />
             </div>
             <div>
@@ -61,7 +61,7 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
                 <span className="text-xs font-mono uppercase tracking-widest text-red-400 font-bold">
                   EXPEDIENTE CLASIFICADO • CP0 / MARINA
                 </span>
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-amber-950 text-amber-300 border border-amber-700/50 font-mono">
+                <span className="text-[10px] px-1.5 py-0.2 rounded bg-red-950 text-red-300 border border-red-800 font-mono">
                   ID: #{warlord.id.toUpperCase()}
                 </span>
               </div>
@@ -75,19 +75,19 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
           <button
             onClick={onClose}
             aria-label="Cerrar expediente"
-            className="p-2 rounded-lg bg-grandline-900 border border-slate-800 text-slate-400 hover:text-white hover:border-pirate-gold transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-pirate-gold"
+            className="p-2 rounded-lg bg-grandline-900 border border-slate-800 text-slate-400 hover:text-white hover:border-red-600 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-600"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Modal Navigation Tabs */}
-        <div className="px-6 py-2 bg-grandline-950/60 border-b border-slate-800 flex gap-2 sm:gap-4 text-xs sm:text-sm font-mono">
+        <div className="px-6 py-2 bg-grandline-950/80 border-b border-slate-800 flex gap-2 sm:gap-4 text-xs sm:text-sm font-mono">
           <button
             onClick={() => setActiveTab('profile')}
-            className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
               activeTab === 'profile'
-                ? 'bg-pirate-gold text-grandline-950 font-bold'
+                ? 'bg-red-700 text-white font-bold shadow-[0_0_12px_rgba(220,38,38,0.4)]'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
@@ -95,9 +95,9 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
           </button>
           <button
             onClick={() => setActiveTab('combat')}
-            className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
               activeTab === 'combat'
-                ? 'bg-pirate-gold text-grandline-950 font-bold'
+                ? 'bg-red-700 text-white font-bold shadow-[0_0_12px_rgba(220,38,38,0.4)]'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >
@@ -105,9 +105,9 @@ export default function CharacterModal({ warlord, onClose }: CharacterModalProps
           </button>
           <button
             onClick={() => setActiveTab('lore')}
-            className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
+            className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
               activeTab === 'lore'
-                ? 'bg-pirate-gold text-grandline-950 font-bold'
+                ? 'bg-red-700 text-white font-bold shadow-[0_0_12px_rgba(220,38,38,0.4)]'
                 : 'text-slate-400 hover:text-white hover:bg-slate-800'
             }`}
           >

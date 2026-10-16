@@ -51,7 +51,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           </div>
 
           {/* Dark tendril borders */}
-          <div className="absolute inset-0 border-2 border-purple-600/60 shadow-[inset_0_0_25px_rgba(46,16,101,0.9)] animate-pulse" />
+          <div className="absolute inset-0 border-2 border-purple-900/90 shadow-[inset_0_0_30px_rgba(46,16,101,0.95),0_0_20px_#3b0764] animate-pulse" />
         </div>
       );
     }
@@ -133,7 +133,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           </div>
 
           {/* Circus party carnival border strobes */}
-          <div className="absolute inset-0 border-2 border-red-500/80 shadow-[0_0_15px_#ef4444,inset_0_0_15px_#3b82f6] animate-pulse" />
+          <div className="absolute inset-0 border-2 border-red-700/90 shadow-[0_0_20px_#b91c1c,inset_0_0_15px_#1e3a8a] animate-pulse" />
         </div>
       );
     }
@@ -165,7 +165,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           </div>
 
           {/* Cyan boundary aura */}
-          <div className="absolute inset-0 border border-cyan-400/60 shadow-[inset_0_0_20px_rgba(6,182,212,0.25)]" />
+          <div className="absolute inset-0 border border-sky-500/70 shadow-[inset_0_0_20px_rgba(3,105,161,0.3),0_0_15px_rgba(3,105,161,0.4)]" />
         </div>
       );
     }
@@ -194,8 +194,8 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
             </span>
           ))}
 
-          {/* Pink/Magenta passionate border glow */}
-          <div className="absolute inset-0 border-2 border-pink-500/80 shadow-[0_0_20px_#ec4899,inset_0_0_15px_rgba(236,72,153,0.3)] animate-pulse" />
+          {/* Imperial Kuja Crimson & Empress Purple border glow */}
+          <div className="absolute inset-0 border-2 border-rose-700/80 shadow-[0_0_25px_#9f1239,inset_0_0_20px_rgba(159,18,57,0.4)] animate-pulse" />
         </div>
       );
     }
@@ -256,7 +256,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           </div>
 
           {/* Fuchsia psycho border */}
-          <div className="absolute inset-0 border-2 border-fuchsia-500/80 shadow-[0_0_15px_#ec4899,inset_0_0_12px_rgba(217,70,239,0.3)]" />
+          <div className="absolute inset-0 border-2 border-rose-900/90 shadow-[0_0_20px_#831843,inset_0_0_15px_rgba(131,24,67,0.4)]" />
         </div>
       );
     }
@@ -283,7 +283,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           <div className="absolute inset-0 bg-rose-500/5 mix-blend-screen animate-kuma-teleport" />
 
           {/* Pressure border */}
-          <div className="absolute inset-0 border border-rose-400/80 shadow-[inset_0_0_20px_rgba(244,63,94,0.3)]" />
+          <div className="absolute inset-0 border border-slate-400/80 shadow-[inset_0_0_20px_rgba(255,255,255,0.2),0_0_15px_rgba(225,29,72,0.35)]" />
         </div>
       );
     }
@@ -312,7 +312,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           <div className="absolute bottom-0 inset-x-0 h-28 bg-gradient-to-t from-purple-950 via-purple-900/50 to-transparent shadow-[0_0_30px_#581c87]" />
 
           {/* Eerie border aura */}
-          <div className="absolute inset-0 border-2 border-purple-500/70 shadow-[inset_0_0_20px_rgba(88,28,135,0.6)]" />
+          <div className="absolute inset-0 border-2 border-purple-800/90 shadow-[inset_0_0_25px_rgba(88,28,135,0.8),0_0_15px_#581c87]" />
         </div>
       );
     }
@@ -349,7 +349,7 @@ export const WarlordCardFX: React.FC<WarlordCardFXProps> = ({ warlordId, isHover
           </div>
 
           {/* Ocean current border */}
-          <div className="absolute inset-0 border-2 border-cyan-500/80 shadow-[0_0_15px_#06b6d4,inset_0_0_18px_rgba(6,182,212,0.3)] animate-pulse" />
+          <div className="absolute inset-0 border-2 border-blue-700/90 shadow-[0_0_20px_#1e3a8a,inset_0_0_18px_rgba(30,58,138,0.4)] animate-pulse" />
         </div>
       );
     }

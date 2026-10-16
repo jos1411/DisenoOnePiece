@@ -82,9 +82,9 @@ export default function App() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             {/* Header & Description */}
             <div className="text-center max-w-3xl mx-auto mb-12">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-grandline-900 border border-pirate-gold/30 text-pirate-gold text-xs font-mono uppercase tracking-widest mb-3">
-                <Skull className="w-3.5 h-3.5" />
-                REGISTRO OFICIAL DE RECOMPENSAS
+              <div className="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-grandline-950 border border-red-700/60 text-red-300 text-xs font-mono uppercase tracking-widest mb-3 shadow-[0_0_15px_rgba(220,38,38,0.2)]">
+                <Skull className="w-3.5 h-3.5 text-red-500" />
+                REGISTRO OFICIAL DE RECOMPENSAS • MARINA HQ
               </div>
               <h2 className="text-3xl sm:text-5xl font-display font-extrabold text-white uppercase tracking-tight">
                 Carteles Wanted de los Shichibukai
@@ -95,7 +95,7 @@ export default function App() {
             </div>
 
             {/* Filter, Search & Sort Controls Bar */}
-            <div className="mb-10 p-4 sm:p-6 rounded-2xl bg-grandline-900/90 border border-slate-800 backdrop-blur-md shadow-xl flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+            <div className="mb-10 p-4 sm:p-6 rounded-2xl bg-grandline-900/90 border border-red-950/60 backdrop-blur-md shadow-2xl flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
               {/* Search Bar */}
               <div className="relative flex-1 min-w-[240px]">
                 <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
@@ -104,14 +104,14 @@ export default function App() {
                   placeholder="Buscar por nombre, apodo, fruta o tripulación..."
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-grandline-950 border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-pirate-gold focus:ring-1 focus:ring-pirate-gold font-body transition-all"
+                  className="w-full pl-10 pr-4 py-2.5 rounded-xl bg-grandline-950 border border-slate-700/80 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-red-600 focus:ring-1 focus:ring-red-600 font-body transition-all"
                 />
               </div>
 
               {/* Category Filter Pills */}
               <div className="flex items-center gap-1.5 flex-wrap">
-                <span className="text-xs font-mono text-slate-500 mr-1 hidden sm:inline flex items-center gap-1">
-                  <Filter className="w-3.5 h-3.5" /> Filtro:
+                <span className="text-xs font-mono text-slate-400 mr-1 hidden sm:inline flex items-center gap-1">
+                  <Filter className="w-3.5 h-3.5 text-red-500" /> Filtro:
                 </span>
                 {[
                   { id: 'all', label: 'Todos (11)' },
@@ -125,8 +125,8 @@ export default function App() {
                     onClick={() => handleFilterChange(tab.id as typeof activeFilter)}
                     className={`px-3 py-1.5 rounded-lg text-xs font-mono transition-all cursor-pointer ${
                       activeFilter === tab.id
-                        ? 'bg-pirate-gold text-grandline-950 font-bold shadow-pirate-gold'
-                        : 'bg-grandline-950 text-slate-400 hover:text-white border border-slate-800'
+                        ? 'bg-red-700 text-white font-bold border border-red-500 shadow-[0_0_15px_rgba(220,38,38,0.4)]'
+                        : 'bg-grandline-950 text-slate-300 hover:text-white border border-slate-800 hover:border-red-900/60'
                     }`}
                   >
                     {tab.label}

@@ -21,10 +21,10 @@ export default function Hero({ onExplore, onViewPowers }: HeroProps) {
     <section id="hero" className="relative min-h-[92vh] flex items-center justify-center pt-24 pb-16 overflow-hidden">
       {/* Background Ambience Layers */}
       <div className="absolute inset-0 bg-radial-vignette pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(124,58,237,0.18),rgba(255,255,255,0))]" />
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(30,58,138,0.28),rgba(0,0,0,0))]" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 left-10 w-96 h-96 bg-red-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 left-10 w-96 h-96 bg-red-700/15 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-96 h-96 bg-purple-900/20 rounded-full blur-3xl pointer-events-none" />
 
       {/* Grid Pattern Overlay */}
       <div
@@ -37,9 +37,9 @@ export default function Hero({ onExplore, onViewPowers }: HeroProps) {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* World Government Official Notice Pill */}
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-grandline-900/90 border border-pirate-gold/40 shadow-pirate-gold mb-8 animate-float-slow">
-          <Shield className="w-4 h-4 text-pirate-gold" />
-          <span className="text-xs uppercase font-mono tracking-widest text-pirate-gold font-semibold">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-grandline-950/90 border border-red-700/50 shadow-[0_0_20px_rgba(220,38,38,0.25)] mb-8 animate-float-slow">
+          <Shield className="w-4 h-4 text-red-500" />
+          <span className="text-xs uppercase font-mono tracking-widest text-red-300 font-semibold">
             GOBIERNO MUNDIAL • ARCHIVO SUPREMO DE MARINA
           </span>
           <span className="w-1.5 h-1.5 rounded-full bg-red-500 animate-ping" />
@@ -52,7 +52,7 @@ export default function Hero({ onExplore, onViewPowers }: HeroProps) {
           </h2>
           <h1 className="text-4xl sm:text-6xl md:text-7xl lg:text-8xl font-display uppercase tracking-tight text-white leading-none">
             LOS SIETE SEÑORES <br />
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-pirate-gold to-orange-400">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-red-600 via-pirate-gold to-rose-600">
               DE LA GUERRA
             </span>
           </h1>
@@ -74,9 +74,9 @@ export default function Hero({ onExplore, onViewPowers }: HeroProps) {
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4 sm:gap-6">
           <button
             onClick={handleExploreClick}
-            className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-amber-500 via-pirate-gold to-yellow-500 text-grandline-950 font-display text-sm uppercase tracking-wider font-extrabold shadow-[0_0_30px_rgba(229,169,59,0.5)] hover:shadow-[0_0_45px_rgba(229,169,59,0.8)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-3"
+            className="group relative px-8 py-4 rounded-xl bg-gradient-to-r from-red-700 via-red-600 to-amber-600 text-white font-display text-sm uppercase tracking-wider font-extrabold shadow-[0_0_30px_rgba(220,38,38,0.5)] hover:shadow-[0_0_45px_rgba(220,38,38,0.8)] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer flex items-center gap-3"
           >
-            <Skull className="w-5 h-5 text-grandline-950 transition-transform group-hover:rotate-12" />
+            <Skull className="w-5 h-5 text-white transition-transform group-hover:rotate-12" />
             <span>Ver Carteles Wanted</span>
             <ChevronRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
           </button>
@@ -96,15 +96,15 @@ export default function Hero({ onExplore, onViewPowers }: HeroProps) {
             <div className="text-2xl sm:text-3xl font-display text-pirate-gold font-bold">20.6B+ ฿</div>
             <div className="text-xs text-slate-400 font-mono uppercase tracking-wider mt-1">Recompensa Total Activa</div>
           </div>
-          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-pirate-gold/40 transition-colors">
-            <div className="text-2xl sm:text-3xl font-display text-red-400 font-bold">11</div>
+          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-red-600/40 transition-colors">
+            <div className="text-2xl sm:text-3xl font-display text-red-500 font-bold">11</div>
             <div className="text-xs text-slate-400 font-mono uppercase tracking-wider mt-1">Guerreros Registrados</div>
           </div>
-          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-pirate-gold/40 transition-colors">
-            <div className="text-2xl sm:text-3xl font-display text-cyan-400 font-bold">3 Pilares</div>
+          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-blue-600/40 transition-colors">
+            <div className="text-2xl sm:text-3xl font-display text-blue-400 font-bold">3 Pilares</div>
             <div className="text-xs text-slate-400 font-mono uppercase tracking-wider mt-1">Equilibrio del Mar</div>
           </div>
-          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-pirate-gold/40 transition-colors">
+          <div className="p-4 rounded-xl bg-grandline-900/70 border border-slate-800/80 backdrop-blur-sm hover:border-purple-600/40 transition-colors">
             <div className="text-2xl sm:text-3xl font-display text-purple-400 font-bold">SSG</div>
             <div className="text-xs text-slate-400 font-mono uppercase tracking-wider mt-1">Serafines de Reemplazo</div>
           </div>
