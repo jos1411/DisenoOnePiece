@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-primary: #7c3aed;
+  --color-secondary: #a78bfa;
+  --color-accent: #f43f5e;
+  --color-gold: #e5a93b;
+  --color-background: #060913;
+  --color-card: #0c1222;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #060913;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #233560;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #e5a93b;
+}
+
+/* One piece bounty paper texture and borders */
+.bounty-poster {
+  background: linear-gradient(135deg, #f6ebd6 0%, #ebd7ba 50%, #dfc6a2 100%);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), inset 0 0 40px rgba(139, 90, 43, 0.25);
+  position: relative;
+}
+
+.bounty-poster::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(101, 67, 33, 0.15) 1px, transparent 1px);
+  background-size: 16px 16px;
+  pointer-events: none;
+  opacity: 0.7;
+}
+
+/* Glowing text effects */
+.text-glow-gold {
+  text-shadow: 0 0 10px rgba(229, 169, 59, 0.6), 0 0 20px rgba(229, 169, 59, 0.3);
+}
+
+.text-glow-crimson {
+  text-shadow: 0 0 10px rgba(230, 57, 70, 0.6), 0 0 20px rgba(230, 57, 70, 0.3);
+}
+
+.text-glow-purple {
+  text-shadow: 0 0 10px rgba(124, 58, 237, 0.6), 0 0 20px rgba(124, 58, 237, 0.3);
+}
+
+/* 3D tilt perspective container */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Respect user's motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  ::before,
+  ::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
