@@ -19,7 +19,7 @@ Branch: main | Delivery Strategy: Work-unit commits | Test Runner: npm run build
 - T6 (S5): Map all 11 user-uploaded warlord images to standardized local paths (/images/warlords/<id>.jpg) in dataset and ensure local asset serving. [Route: inline] [Status: completed] [Commit: 8621d59]
 - T7 (S5): Implement WantedCard micro-interactions: 3D Tilt, individual character hover FX (Teach darkness vortex, Mihawk slash & aura, Buggy Bara Bara fragmentation & confetti, Law ROOM dome, Hancock hearts & stone petrification, Crocodile sand particles, Doflamingo marionette delay & strings, Kuma paw ripples, Moria flying bats & living shadow, Jinbe water waves), and sibling card hover dimming/blur. [Route: inline] [Status: completed] [Commit: 8621d59]
 - T8 (S5): Implement character-specific click modal transitions (screen takeover animations for each warlord before opening dossier) and enhanced Web Audio synthesis sound design. [Route: inline] [Status: completed] [Commit: 8621d59]
-- T9 (S5): Verify full build, test interactions, prepare repository for GitHub push and Vercel deployment. [Route: inline] [Status: in-progress]
+- T9 (S5): Verify full build, test interactions, prepare repository for GitHub push and Vercel deployment. [Route: inline] [Status: completed] [Commit: dce3d7f]
 - T10 (S6): Refactor global color palette into a cohesive, high-contrast Marineford & Grand Line intelligence system (Deep Navy, Crimson Red, Pure White, Kuro Black, Imperial Purple, Berry Gold) across Hero, WantedCards, WarlordCardFX, filters, and Dossier modals. [Route: inline] [Status: completed] [Commit: a7bc391]
 
 ## Log
@@ -29,4 +29,5 @@ Branch: main | Delivery Strategy: Work-unit commits | Test Runner: npm run build
 - L4: 2026-10-15: User provided 11 custom warlord character images and comprehensive "SHICHIBUKAI WANTED CARDS" animation & audio specification per character. Standardized all image filenames in public/images/warlords/ and initiated custom FX implementation.
 - L5: 2026-10-15: Standardized all 11 warlord images, linked locally, added no-referrer meta, implemented WarlordCardFX with individual character visual overlays, sibling card hover blur, ModalTransitionOverlay full-screen signature takeovers on click, and enriched audio synthesizers with laughter cadences. Commit 8621d59.
 - L6: 2026-10-15: Harmonized entire color scheme according to user preference into an elite Marineford & Grand Line palette: Deep Marine Navy (#0c152b), Crimson Red (#dc2626), Pure White (#f8fafc), Kuro Black (#05070f), Imperial Purple (#3b0764 / #581c87), and Berry Gold (#e5a93b), eliminating visual noise while enriching character distinction.
+- L7: 2026-10-15: Created public GitHub repository jos1411/DisenoOnePiece and published both main and feat/shichibukai-landing branches ready for 1-click Vercel deployment.
 
